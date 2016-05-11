@@ -37,7 +37,7 @@ Notice: The example contains a source code section that is commented out at the 
 		\usepackage{minted} and
 		\input{var/mintedExample.tex}
 
-		in main.tex. Also you need to compile with the -shell-escape flag (which makeall.sh uses as default).
+in main.tex. Also you need to compile with the -shell-escape flag (which makeall.sh uses as default).
 
 Best Wishes 
 JacknJo
