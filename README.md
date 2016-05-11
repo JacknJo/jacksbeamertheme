@@ -19,15 +19,19 @@ They can be found at https://www.ctan.org/.
 # HowTo
 Using this template is really easy. 
 Just clone the repository to your location by using:
+
     git clone https://github.com/JacknJo/jacksbeamertheme.git
 
 change to the directory jacksbeamertheme by:
+
     cd jacksbeamertheme
 
 compile the example by:
+
     sh makeall.sh
 
 if you wanna clear your project use:
+
     sh clearall.sh
 
 
@@ -40,4 +44,5 @@ Notice: The example contains a source code section that is commented out at the 
 in main.tex. Also you need to compile with the -shell-escape flag (which makeall.sh uses as default).
 
 Best Wishes 
+
 JacknJo
