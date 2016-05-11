@@ -1,0 +1,120 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{
+%  \FPeval{\resa}{0.25 * \myPaperheight}%
+%  \FPeval{\resb}{0.70 * \myPaperwidth}%
+  
+  \begin{tikzpicture}
+  \useasboundingbox (0, 0) rectangle(\paperwidth,\paperheight);
+  \fill[color=myCol2] (0, 0.25\paperheight) rectangle (0.7\paperwidth, \paperheight);
+  \fill[color=myCol1] (0,0) rectangle(0.7\paperwidth, 0.25\paperheight -3);
+  \fill[color=myCol3] ({0.7\paperwidth+3},0) rectangle(\paperwidth,\paperheight);
+  \ifnum\thepage>1\relax%
+     \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+     \fill[color=myCol2] (0, 0.81\paperheight) rectangle (0.05\paperwidth, 0.81\paperheight+0.47cm);
+     \fill[color=myCol1] (0.06\paperwidth, 0.81\paperheight) rectangle(\paperwidth, 0.81\paperheight+0.47cm);
+     \path[left color = myCol1, right color = myCol1] (0,0.1\paperheight) rectangle (0.89\paperwidth, 0.1\paperheight+1pt);
+     \path[left color = myCol2, right color = myCol2] (0.9\paperwidth,0.1\paperheight) rectangle (\paperwidth, 0.1\paperheight+1pt);
+     \ifnum\uselogo>0
+     \node[inner sep=0pt] (logo) at (\the\logox, \the\logoy) {\logographics};
+     \fi
+  \fi
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{texsx}
+{ 	
+	\begin{textblock}{0.6}(0.05, 0.46)
+  		\begin{beamercolorbox}[wd=0.6\paperwidth]{title}
+			\usebeamerfont{title}\usebeamercolor{title}
+			\vspace*{\titleoffset}\newline%
+			\inserttitle\par%
+    	\end{beamercolorbox}%
+  	\end{textblock}  
+  	
+  	\begin{textblock}{0.6}(0.05, 0.78)
+  		\begin{beamercolorbox}[wd=0.6\paperwidth]{subtitle}
+			\usebeamercolor{subtitle}\usebeamerfont{subtitle}
+			\vspace*{\subtitleoffset}\newline%
+			\insertsubtitle%
+    	\end{beamercolorbox}%
+  	\end{textblock}  
+  	
+    \begin{textblock}{0.265}(0.725, 0.1)
+  		\begin{beamercolorbox}[wd=0.265\paperwidth]{author}
+  			\raggedleft
+  			\usebeamercolor{author}\usebeamerfont{author}\insertauthor \par
+    	\end{beamercolorbox}%
+  	\end{textblock}
+  	
+  	\begin{textblock}{0.265}(0.725, 0.78)
+  		\begin{beamercolorbox}[wd=0.265\paperwidth]{author}
+  			\raggedleft
+  			\vspace*{\dateoffset}\newline%
+			\usebeamercolor{date}\usebeamerfont{date}\insertdate\par%   	
+    	\end{beamercolorbox}%
+  	\end{textblock}
+}
+
+%\setbeamertemplate{headline}{
+%	\ifnum\thepage>1\relax
+%		\begin{beamercolorbox}[wd=1.0\paperwidth,ht=1.25cm,dp=1ex,left]{frametitle}
+%			\raggedleft
+%			\begin{normalsize}
+%				\large\hspace*{0.2cm}\textcolor{myCol2}{\textbf{\currentname}} \hfill\normalsize \textcolor{black}{\insertframenumber/\inserttotalframenumber}\hspace*{0.25cm}
+%				\vspace*{0.12cm}
+%			\end{normalsize}
+%		\end{beamercolorbox}
+%	\fi
+%}
+
+\setbeamertemplate{headline}{
+	\ifnum\insertframenumber>0\relax
+		\setlength{\buffer}{\frametitleoffset - 0.25cm}
+		\vspace*{\buffer}
+		\setlength{\buffer}{0.06\paperwidth -0.1cm}
+		\hspace*{\buffer}
+		%\hspace*{0.06\paperwidth}
+		\drawandcalcheight{		
+		\begin{beamercolorbox}[wd=1.0\paperwidth,ht=1.15cm,dp=1ex,left]{frametitle}%
+			\usebeamercolor{frametitle}\usebeamerfont{frametitle}\insertframetitle
+		\end{beamercolorbox}}{\titleheight}
+		
+		\setlength{\buffer}{0.123\paperheight -\the\titleheight - \frametitleoffset + \framesubtitleoffset}%
+		\vspace*{\buffer}%
+		\begin{beamercolorbox}[wd=\paperwidth, ht=0.75cm]{subtitle}
+			\begin{small}
+				\setlength{\buffer}{0.065\paperwidth -0.1cm}%
+				\hspace*{\buffer}
+				\noindent\insertframesubtitle%
+				
+			\end{small}
+    	\end{beamercolorbox}%
+    	
+	\fi
+}
+
+\setbeamertemplate{footline}{
+	\ifnum\insertframenumber>0\relax
+		\vspace*{-1.5cm}
+		\begin{beamercolorbox}[wd=1.0\paperwidth,ht=1.25cm,dp=1ex,left]{frametitle}%
+			\begin{tabularx}{0.99\paperwidth}{XXX}
+				\normalsize \textcolor{myCol2}{\hspace*{0.275cm}\textbf{\currentname}} & \scriptsize\centering\textcolor{gray}{\middleText} & \normalsize \raggedleft \textcolor{black}{\insertframenumber/\inserttotalframenumber}\hspace*{0.275cm}\\
+			\end{tabularx}
+%			\raggedleft%
+%			\normalsize\textcolor{myCol2}{\hspace*{0.275cm}\textbf{\currentname}} \hfill \textcolor{black}{\insertframenumber/\inserttotalframenumber}\hspace*{0.275cm}
+		\end{beamercolorbox}
+		\setlength{\buffer}{0.225cm + \framefootlineoffset}
+		\vspace*{\buffer}
+	\fi
+}
+
+
+\setbeamertemplate{frametitle}{
+	\setlength{\buffer}{0.175\paperheight + \frametextoffset}
+	\vspace*{\buffer}
+}
+
+\mode
+<all>

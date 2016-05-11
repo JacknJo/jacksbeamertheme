@@ -1,0 +1,33 @@
+	\definecolor{bg}{rgb}{0.95,0.95,0.95}
+	\newminted{python}{fontsize=\scriptsize, 
+		linenos,
+		numbersep=8pt,
+		gobble=4,
+		frame=lines,
+		bgcolor=bg,
+		framesep=3mm} 
+
+	% check here: http://nochair.net/posts/2011/05-05-fragile-latex-beamer.html
+	\defverbatim[colored]\exampleCode{
+		\begin{pythoncode}
+			import numpy as np
+			import pylab as pl
+			
+			def f_x(x):
+			return np.exp(x)+x**2-5*x
+			
+			def approx_f(x):
+			return 1 -4*x +3./2*x**2
+			
+			xvals = np.arange(-4,4,0.1)
+			fx_vals = [f_x(x) for x in xvals]
+			
+			pl.show()
+		\end{pythoncode}
+	}
+
+	\begin{frame}{Code example}{with \textbackslash usepackage\{minted\}}
+		\exampleCode
+		\pause
+		Overlays work!
+	\end{frame}

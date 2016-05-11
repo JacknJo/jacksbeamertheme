@@ -1,0 +1,130 @@
+\newcounter{fktcnt}
+\newcommand{\colortheme}[1]{%
+\setcounter{fktcnt}{#1}%
+\ifcase\thefktcnt
+	% [0] define blue color theme
+	% bright blue
+%	\definecolor{myCol1}{RGB}{34,67,162}
+	\definecolor{myCol1}{RGB}{86,122,172}
+	\definecolor{myCol1_light}{RGB}{46,142,168}
+	\definecolor{myCol1_ultralight}{RGB}{195,209,255}
+	\definecolor{myCol1_text}{RGB}{255,255,255}
+	%
+	% dark blue
+	\definecolor{myCol2}{RGB}{34,34,92}
+	\definecolor{myCol2_text}{RGB}{255,255,255}
+	%
+	% gray
+	\definecolor{myCol3}{RGB}{37,42,69}
+	\definecolor{myCol3_text}{RGB}{255,255,255}
+\or
+	% [1] define orange color theme
+	% orange
+	\definecolor{myCol1}{RGB}{197,107,73}
+	\definecolor{myCol1_light}{RGB}{214,168,76}
+	\definecolor{myCol1_ultralight}{RGB}{245,236,215}
+	\definecolor{myCol1_text}{RGB}{255,255,255}
+	%
+	% brown
+	\definecolor{myCol2}{RGB}{104,83,74}
+	\definecolor{myCol2_text}{RGB}{255,255,255}
+	%
+	% blue
+	\definecolor{myCol3}{RGB}{90,84,80}
+	\definecolor{myCol3_text}{RGB}{255,255,255}
+\or
+	% [2] define green color theme
+	% bright green
+	\definecolor{myCol1}{RGB}{38,135,29}
+	\definecolor{myCol1_light}{RGB}{122,171,49}
+	\definecolor{myCol1_ultralight}{RGB}{216,245,214}
+	\definecolor{myCol1_text}{RGB}{255,255,255}
+	%
+	% dark green
+	\definecolor{myCol2}{RGB}{53,89,55}
+	\definecolor{myCol2_text}{RGB}{255,255,255}
+	%
+	% gray green
+	\definecolor{myCol3}{RGB}{65,78,63}
+	\definecolor{myCol3_text}{RGB}{255,255,255}
+\or
+	% [3] define red color theme
+	% bright red
+	\definecolor{myCol1}{RGB}{159,42,42}
+	\definecolor{myCol1_light}{RGB}{213,114,77}
+	\definecolor{myCol1_ultralight}{RGB}{239,216,197}
+	\definecolor{myCol1_text}{RGB}{255,255,255}
+	%
+	% dark red
+	\definecolor{myCol2}{RGB}{111,37,37}
+	\definecolor{myCol2_text}{RGB}{255,255,255}
+	%
+	% gray red
+	\definecolor{myCol3}{RGB}{68,41,41}
+	\definecolor{myCol3_text}{RGB}{255,255,255}
+\or
+	% [4] define turqioise color theme
+	% bright turquoise
+	\definecolor{myCol1}{RGB}{36,135,154}
+	\definecolor{myCol1_light}{RGB}{44,176,182}
+	\definecolor{myCol1_ultralight}{RGB}{229,255,253}
+	\definecolor{myCol1_text}{RGB}{255,255,255}
+	%
+	% dark turquoise
+	\definecolor{myCol2}{RGB}{19,88,107}
+	\definecolor{myCol2_text}{RGB}{255,255,255}
+	%
+	% gray turquoise
+	\definecolor{myCol3}{RGB}{47,71,85}
+	\definecolor{myCol3_text}{RGB}{255,255,255}
+\else
+	% [5] define red color theme
+	% bright red
+	\definecolor{myCol1}{RGB}{242,204,0}
+	\definecolor{myCol1_light}{RGB}{254,221,68}
+	\definecolor{myCol1_ultralight}{RGB}{255,250,230}
+	\definecolor{myCol1_text}{RGB}{72,32,0}
+	%
+	% dark red
+	\definecolor{myCol2}{RGB}{241,160,49}
+	\definecolor{myCol2_text}{RGB}{72,32,0}
+	%
+	% gray red
+	\definecolor{myCol3}{RGB}{226,148,0}
+	\definecolor{myCol3_text}{RGB}{72,32,0}
+
+\fi}
+
+\setbeamercolor*{title}{fg=myCol2_text}
+\setbeamercolor*{author}{fg=myCol3_text}
+\setbeamercolor*{subtitle}{fg=myCol2_text}
+\setbeamercolor*{item}{fg=myCol1}
+\setbeamercolor*{frametitle}{fg=myCol2}
+\setbeamercolor*{block title}{fg=myCol1_text, bg=myCol1}
+\setbeamercolor*{block title example}{fg=myCol2_text, bg=myCol2}
+\setbeamercolor*{block title alerted}{fg=myCol1_text, bg=myCol1_light}
+\setbeamercolor*{block body}{bg=myCol1_ultralight}
+\setbeamercolor*{block body example}{bg=myCol1_ultralight}
+\setbeamercolor*{block body alerted}{bg=myCol1_ultralight}
+\setbeamercolor*{section in toc}{fg=black}
+\setbeamercolor*{section page}{fg=myCol1_text}
+\setbeamercolor*{bibliography item}{fg=black}
+\setbeamercolor*{bibliography entry title}{fg=myCol2}
+\setbeamercolor*{bibliography entry author}{fg=black}
+\setbeamercolor*{bibliography entry journal}{fg=black}
+\setbeamercolor*{bibliography entry note}{fg=black}
+
+\setbeamerfont{section page}{size=\LARGE}
+\setbeamerfont{title}{series=\bfseries, size=\huge} %series=\bfseries,
+\setbeamerfont{author}{size=\Large}
+\setbeamerfont{date}{size=\Large}
+\setbeamerfont{frametitle}{series=\bfseries, size=\LARGE}
+\setbeamerfont{subtitle}{size=\Large}
+
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{items}[square]
+\setbeamertemplate{itemize item}{\raisebox{0.035cm}{\tikz{\draw[color=myCol1, line width=1pt] rectangle(.15,.15);}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.031cm}{\tikz{\draw[color=myCol2, line width=1.3pt] rectangle(.10,.10);}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.031cm}{\tikz{\fill[color=myCol3] rectangle(.10,.10);}}}
+\setbeamertemplate{sections/subsections in toc}[square]

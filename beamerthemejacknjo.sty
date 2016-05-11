@@ -1,0 +1,86 @@
+\mode<presentation>
+% Requirement
+\RequirePackage{tikz, fp, color, nameref, ragged2e, calc, tabularx}
+\RequirePackage[style=ieee,backend=bibtex]{biblatex}
+\RequirePackage[absolute, overlay]{textpos}
+
+\geometry{left = 0.06\paperwidth}
+\geometry{right = 0.11\paperwidth}
+\setlength{\TPHorizModule}{\paperwidth}\setlength{\TPVertModule}{\paperheight}
+
+% Define commands
+
+\newcommand{\addcontents}{1}
+\newcommand{\drawcontents}{1}
+\makeatletter
+\newcommand{\currentname}{\@currentlabelname}
+\makeatother
+
+\newlength{\titleheight}
+\newlength{\subtitleheight}
+\newlength{\buffer}
+
+\newcommand{\drawandcalcheight}[2]{\setbox0=\hbox{#1}#2=\ht0 \advance#2 by \dp0 #1}
+
+\newlength{\titleoffset}
+\setlength{\titleoffset}{0pt}
+
+\newlength{\subtitleoffset}
+\setlength{\titleoffset}{0pt}
+
+\newlength{\frametitleoffset}
+\setlength{\frametitleoffset}{0pt}
+
+\newlength{\framesubtitleoffset}
+\setlength{\framesubtitleoffset}{0pt}
+
+\newlength{\frametextoffset}
+\setlength{\frametextoffset}{0pt}
+
+\newlength{\framefootlineoffset}
+\setlength{\framefootlineoffset}{0pt}
+
+\newlength{\dateoffset}
+\setlength{\dateoffset}{0pt}
+
+\newlength{\logox}
+\setlength{\logox}{0pt}
+
+\newlength{\logoy}
+\setlength{\logoy}{0pt}
+\newcommand{\uselogo}{0}
+
+\newcommand{\drawopp}{%
+	\begin{tikzpicture}[y=0.80pt, x=0.80pt, scale=0.25, inner sep=0pt, outer sep=0pt]
+	\path[fill=myCol1] (-481.6875,1096.1562) -- (-508.9062,1117.3750) --
+	  (-481.6875,1138.5625) .. controls (-481.6875,1138.5625) and
+	  (-486.8263,1130.0815) .. (-488.1562,1121.2812) -- (-422.4375,1121.2812) ..
+	  controls (-423.7675,1130.0814) and (-428.9062,1138.5625) ..
+	  (-428.9062,1138.5625) -- (-401.6875,1117.3750) -- (-428.9062,1096.1562) ..
+	  controls (-428.9062,1096.1562) and (-423.7742,1104.6475) ..
+	  (-422.4375,1113.4375) -- (-488.1562,1113.4375) .. controls
+	  (-486.8197,1104.6474) and (-481.6875,1096.1562) .. (-481.6875,1096.1562) --
+	  cycle;
+	\end{tikzpicture}
+}
+
+\newcommand{\printbibliographyframe}{
+	\section*{Quellen}
+	\begin{frame}[allowframebreaks]{Quellen}
+		\printbibliography
+	\end{frame}}
+
+\newcommand{\outlinesection}[1]{%
+	\section{#1}\label{sec:#1}%
+	\begin{frame}
+		\frametitle{Gliederung}
+		\tableofcontents[currentsection]
+	\end{frame}}
+
+\useinnertheme{jacknjo}
+\usecolortheme{jacknjo}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[shadow=false]  
+
+\mode<all>
