@@ -1,4 +1,4 @@
-# jacksbeamertheme
+# Jack's Beamer Theme
 
 This is my first try to realize a 'as easy as possible' solution for a nice designed beamer theme in LaTeX.
 This is an early release of my work and i'm not shure if i'll find time to maintain all of your wishes.
