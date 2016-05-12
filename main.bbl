@@ -1,0 +1,54 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.6 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{art:dayofB}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Wikipedia}{W.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{W1}
+  \strng{fullhash}{W1}
+  \field{howpublished}{\url{https://en.wikipedia.org/wiki/Day_of_the_Barricades}}
+  \field{note}{[online; from 12.05.2016]}
+  \field{title}{Day of the Barricades}
+  \field{year}{12.05.2016}
+\endentry
+
+\entry{art:horseRacing}{misc}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Wikipedia}{W.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{W1}
+  \strng{fullhash}{W1}
+  \field{howpublished}{\url{https://en.wikipedia.org/wiki/Horse_racing}}
+  \field{note}{[online; from 12.05.2016]}
+  \field{title}{Horse racing}
+  \field{year}{12.05.2016}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

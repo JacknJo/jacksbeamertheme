@@ -30,7 +30,7 @@
 	
 % ##### choose theme and define it's color #####
 \usetheme{jacknjo}
-\colortheme{3} % [0] blue; [1] orange; [2] green; [3] red; [4] turquoise;
+\colortheme{1} % [0] blue; [1] orange; [2] green; [3] red; [4] turquoise;
 
 % ##### language and encoding #####
 \usepackage[T1]{fontenc}
@@ -44,9 +44,13 @@
 \ddmmyyyydate \renewcommand{\dateseparator}{.}
 
 
-% The fastcompile command only matters if you want to change the font. If you don't want to just leave it as 0. Then you will have to compile your project with the lualatex compiler and fastcompile must be set to 1. Also one of the following \setmainfont{fontname} lines has to be uncommented (notice that the .ttf or .otf font has to be installed on your system)
-\newcommand{\fastcompile}{0} % [0] pdflatex; [1] lualatex
-\ifnum\fastcompile=0
+% The useLualatex command only matters if you want to change the font. If you don't want to just leave it 0. 
+% Setting useLualatex to 1 forces you to compile your project with the lualatex compiler. 
+% Also one of the following \setmainfont{fontname} lines has to be uncommented 
+% (notice that the .ttf or .otf font has to be installed on your system)
+
+\newcommand{\useLualatex}{0} % [0] pdflatex; [1] lualatex
+\ifnum\useLualatex=0
 	\usepackage[utf8]{inputenc}
 \else
 	\usepackage{fontspec}
@@ -79,7 +83,7 @@
 
 
 % ##### custom environments #####
-\newenvironment{blocksatz}{\begin{justify}\vspace*{-0.475cm}}{\end{justify}}
+\newenvironment{myjustify}{\begin{justify}\vspace*{-0.475cm}}{\end{justify}}
 
 % ##### custom commands #####
 \newcommand{\pictureat}[4]{%
@@ -102,26 +106,9 @@
 	\end{textblock*}
 }
 
-\newcommand{\myCheck}{
-	\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-0.2, xscale=0.2, inner sep=0pt, outer sep=0pt]
-	\path[draw=myCol2,line join=round,line cap=round,miter limit=4.00,line
-	width=2.100pt,rounded corners=0.0000cm] (295.0000,420.9336) rectangle
-	(395.0000,520.9336);
-	\path[draw=myCol1,line join=miter,line cap=round,miter limit=4.00,even odd
-	rule,line width=2.5pt] (307.9327,463.8016) -- (341.2462,507.1091) --
-	(410.6824,425.8807);
-	\end{tikzpicture}}
-
-\newcommand{\myUnCheck}{
-	\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-0.2, xscale=0.2, inner sep=0pt, outer sep=0pt]
-	\path[draw=myCol2,line join=round,line cap=round,miter limit=4.00,line
-	width=2.100pt,rounded corners=0.0000cm] (295.0000,420.9336) rectangle
-	(395.0000,520.9336);
-	\end{tikzpicture}}
-
 % ##### Titlepage settings - positive and negative lengths are accepted #####
-\setlength{\titleoffset}{0cm}
-\setlength{\subtitleoffset}{0pt}
+\setlength{\titleoffset}{0.5cm}
+\setlength{\subtitleoffset}{0.35cm}
 \setlength{\dateoffset}{0cm}
 
 % ##### Frame settings - positive and negative lengths are accepted #####
@@ -131,20 +118,23 @@
 \setlength{\framefootlineoffset}{0cm}
 
 % ##### Title page Information ##### 
-\title{The Fleye \\Groundstationsoftware}
-\subtitle{Änderungen und Neuerungen}
+\title{Jack's beamer theme}
+\subtitle{My very first own \LaTeX{} design}
 \author{%
-		Florian Hofmann
+		Florian Hofmann\\
+		alias JacknJo
 		}
 \date{Friedrichshafen\\\today}
 
-\newcommand{\middleText}{\copyright Florian Hofmann - GPL2.0}
+\newcommand{\middleText}{\copyright{} your copyright notice}
+\newcommand{\outlineSection}{Outline}
+\newcommand{\biblographySection}{Literature}
 
 % ##### Use this line to place your logo. {posx}{posy}{options}{filename}
 \renewcommand{\uselogo}{1} %uncommented -> logo on ; commented -> logo off
     \setlength{\logox}{\paperwidth  - 1.25cm}
-    \setlength{\logoy}{\paperheight - 0.62cm}
-    \newcommand{\logographics}{\includegraphics[width=1.75cm]{figures/fleyeLogo2.png}}
+    \setlength{\logoy}{\paperheight - 0.65cm}
+    \newcommand{\logographics}{\includegraphics[width=2cm]{figures/jackssolutions}}
     
 % ##### Add your literature.bib here #####
 \addbibresource{var/literature.bib}
@@ -157,39 +147,81 @@
 	\end{frame}
 
 
-	\begin{frame}{Gliederung}
+	\begin{frame}{Outline}
 		\tableofcontents
 	\end{frame}
 
 
-%\outlinesection{Gliederung}
-
-	% To use minted in a beamer theme you have to use the following workaround and compile with the -shell-escape flag!
-	%\input{var/mintedExample.tex}
-
-	\begin{frame}{Lipsum}{Dummytext}
-		Dummy here.
-	\end{frame}
+	\outlineFrame{Introduction}
 	
-	\begin{frame}{Todos}
-		\begin{tabular}{p{8cm} l}
-			test & \myCheck \\
-			test2 & \myCheck \\
-			test4 & \myUnCheck\\
-		\end{tabular}
+	
+	\begin{frame}{Background}{\& personal inspiration}
+		Hello all of you! 
 		
-		\begin{tabularx}{0.99\textwidth}{Xl}
-			test  & \myCheck   \\
-			test2 & \myCheck   \\
-			test4 & \myUnCheck \\
-		\end{tabularx}
+		I'm Jack, 20 years old and student in electrical engineering in Friedrichshafen in Germany.
+		This is my first try to design a own \LaTeX{} template.
+		
+		It's advantages are:
+		\begin{itemize}
+			\item clean structure
+			\item nice \& consistent design
+			\item easy to use with a small basic \LaTeX{} knowledge
+			\item useful additional commands
+			\item export file is \texttt{.pdf} which can be opened nearly anywhere!
+		\end{itemize}
 	\end{frame}
 	
 	
-	\outlinesection{Gegenüberstellungen}
+	\outlineFrame{Utilities}
 	
 	
-	\begin{frame}{Mathematikumgebung}{Mathematische Formeln im Beamer Dokument}
+	\begin{frame}{Text}{}
+		Sometimes you need to present a paragraph of text, which looks better justified.
+		\vfill
+		\begin{myjustify}
+			\lipsum[2]
+		\end{myjustify}
+		\vfill
+	\end{frame}
+	
+	
+	\begin{frame}{Itemize}{}
+		One of the most common ways to create slides is to use lots of itemizes.
+		
+		They are used for:
+		\begin{itemize}
+			\item better readability
+			\item as short descriptions
+			\begin{itemize}
+				\item for easy points
+				\item or difficult
+				\begin{itemize}
+					\item topics
+					\item statements
+				\end{itemize}
+			\end{itemize}
+			\item <2-> they also can be made visible item by item
+			\item <3-> like this!
+		\end{itemize}
+	\end{frame}
+	
+	
+	\begin{frame}{Todo}{list of all tasks}
+		Many projects have deadlines and tasks you have to fulfill by a certain date.
+		Presenting them the following way is very easy and leaves a good and professional impression.
+		\vfill
+		\begin{tabularx}{\textwidth}{Xll}
+			\textbf{task} & \textbf{deadline} & \textbf{state}\\
+			basic tutorials in creating a beamer template & 01.02.03 & \myCheck \\
+			starting a own development & 01.03.16 & \myCheck \\
+			creating a presentation with all the theme's capabilities & 03.04.16 & \myCheck \\
+			finishing the beamer template & 01.06.16 & \myUnCheck\\
+		\end{tabularx}
+		\vfill
+	\end{frame}
+	
+	
+	\begin{frame}{Math environment}{presenting formula is very easy in \LaTeX}
 		\vfill
 		\begin{equation*}
 			f(x)=\sum_{i=0}^\infty \frac{f^{(i)}(x_0)}{i!}(x-x_0)^i
@@ -202,105 +234,127 @@
 	\end{frame}
 	
 	
-	\begin{frame}{Blockumgebungen}{Beispiel, Alarm und Standardblöcke}
-	    \begin{exampleblock}{Beispielbox}
-			Beispielboxtext, hier könnte eine Mathematikaufgabe 
-			stehen oder ähnliche Tasks, die am Ende einer Folie zusammengefasst werden sollen.
+	\begin{frame}{Blocks}{example, alert and standard}
+	    \begin{exampleblock}{Exampleblock}
+			Inside this box you can place an example or a task for your audience:
+			
+			What is the square root of 144? $\sqrt{144} = $
 		\end{exampleblock}
-		\begin{alertblock}{Alarmblock}
-			Der Alarmblock weist auf brisante Punkte hin, um Fehler zu vermeiden.
+		\begin{alertblock}{Alertblock}			
+			There is no real solution to a negative square root!
 		\end{alertblock}
 		\begin{block}{Block}
-			Standardblock für beliebige Anwendungen.
+			Use this for any other reason you can imagine!
 		\end{block}
 	\end{frame}
 	
 	
-	\begin{frame}{Gegenüberstellung}{ohne Zuordnung}
-		Dieser Frame soll ein Beispiel für eine Gegenüberstellung bieten:
+	\begin{frame}{Comparison}{of advantages and disadvantages}
+		This is a example comparison:
 		\begin{center}
 		\begin{tabularx}{0.8\textwidth}{X|X}
-			\textbf{Vorteile}
+			\textbf{Advantages}
 			 \begin{itemize}[<2->]
-			 	\item Lebensdauer
-			 	\item Bedienbarkeit
-			 	\item Kosten
+			 	\item lifetime
+			 	\item easy handling
+			 	\item costs
 			 \end{itemize} &
-			\textbf{Nachteile}
+			\textbf{Disadvantages}
 			 \begin{itemize}[<3->]
-			 	\item Gewicht
-			 	\item Genauigkeit ist ein ganz schwieriger Aspekt zum Testen der Länge
-			 	\item Aufwand
-			 \end{itemize}	 
-			 \\
+			 	\item weight
+			 	\item resolution
+			 	\item integration time
+			 \end{itemize}
 		\end{tabularx}
 		\end{center}
 	\end{frame}
 	
 	
-	\begin{frame}{Gegenüberstellung}{auf selber Höhe - v1}
-		Dieser Frame soll ein Beispiel für eine Gegenüberstellung bieten:
+	\begin{frame}{Comparison}{of two items}
+		This is a example comparison:
 		\begin{center}
 		\begin{tabularx}{\textwidth}{XcX}
-			\textbf{Vorteile} & & \textbf{Nachteile}\\
-			 Vorteil 1& \drawopp & Nachteil 1\\
-			 Lebensdauer & \drawopp & Gewicht \\
-			Bedienbarkeit & \drawopp & Genauigkeit (sehr langer Einstellungsprozess, bis passende Genauigkeit erreicht wird)\\
-			Kosten & \drawopp & Aufwand \\
+			\textbf{Advantages} & & \textbf{Disadvantages}\\
+			lifetime & \drawopp & weight \\
+			easy handling & \drawopp & resolution \\
+			costs & \drawopp & integration time (also works for long texts)\\
+			another & \drawopp & ... \\
 		\end{tabularx}
 		\end{center}
 	\end{frame}	
 	
 	
-	\begin{frame}{Kluge Indirekte Zitate}
-		Dieser Absatz hier ist aus \cite{art:swengineering2}\\
-		Dieser Absatz aus \cite{art:swengineering3}
+	\begin{frame}{Cites}{that get automatically listed in the last frame}
+		The following randomly picked text about the \textbf{Day of the Barricades} is from wikipedia and listed in \cite{art:dayofB}:
+		\glqq In the French Wars of Religion, the Day of the Barricades (in French: Journée des barricades), 12 May 1588, was an outwardly spontaneous public uprising in staunchly Catholic Paris against the moderate [...] \grqq.
+		
+		\glqq Horse racing is an equestrian performance sport, involving two or more jockeys riding horses over a set distance for competition. It is one of the most ancient of all sports and its basic premise – to identify which of two or more horses is the fastest over a set course or distance – has remained unchanged since the earliest times. \grqq{} is a text about \textbf{horse racing} provided by \cite{art:horseRacing}
 	\end{frame}
 	
 	
-	\outlinesection{Bilder}	
+	\outlineFrame{Graphics}	
 	
 	
-	\begin{frame}{Bildzoom}{hier wird gezoomt}
-		Hier wird gezeigt, wie in ein einzelnes Bild hinein gezoomt werden kann.
-		\begin{center}
-			\includegraphics[width = 0.5\textwidth]{figures/img1}		
-		\end{center}
-		\only<+(1)>{\fillpic{height=\paperheight}{figures/img1}}
-		%\pause % uncomment this, if you wanna jump back to the frame before zooming
+	\begin{frame}{Zoom}{stretch a picture to screen size}
+		This is actually really usefull if you have a detailed picture and need the space to explain it's content.
+		\vfill
+		\begin{tabular}{ll}
+			\includegraphics[width = 0.3\textwidth]{figures/img1} & \only<3->{
+				\raisebox{0.15\textwidth}{
+				\begin{minipage}{0.5\textwidth}
+					\begin{itemize}
+						\item Conclusion xyz
+						\item and another more detailed one
+						\begin{itemize}
+							\item with this and
+							\item this content
+						\end{itemize}
+						\item just edit the counter of the only command
+					\end{itemize}
+				\end{minipage}}
+				} \\	
+		\end{tabular}
+		\only<2>{\fillpic{height=\paperheight}{figures/img1}}
+		\vfill
 	\end{frame}	
 		
 		
-	\begin{frame}{Bildoverlap}{Absolutes Positionieren}
-		Test \cite{art:whatsappnocosts}
-		\pictureat{1cm}{2.5cm}{width = 6cm}{figures/img1}
-		\pictureat{7.25cm}{2.5cm}{width = 4cm}{figures/img1}
-		\pictureat{7.25cm}{5.75cm}{width = 4cm}{figures/img1}
+	\begin{frame}{Graphics}{absolute position}
+		\begin{myjustify}
+			\lipsum[3]
+		\end{myjustify}
+		\pictureat{1cm}{2.5cm}{width = 4cm}{figures/img1}
+		\pictureat{7.25cm}{2.5cm}{width = 2cm}{figures/img1}
+		\pictureat{7.25cm}{5.75cm}{width = 2cm}{figures/img1}
 	\end{frame}
 	
 	
-	\begin{frame}{Bildoverlap}{Relatives Positionieren im Text}
-		Hier könnte Ihre Werbung stehen! \cite{art:whatsappnocosts2}\dots und der Text geht tatsächlich weiter\\
-		\begin{figure}
-			\includegraphics[height=3.35cm]{figures/img1}
-			\raisebox{3cm}{\cite{art:swengineering1}}
-		\end{figure}
-		und auch nach dem Bild kommt noch sinnloses BlaBla
-	\end{frame}
-	
-	
-	\begin{frame}{Bildoverlap}
-	\framesubtitle{Relatives Positionieren in einer Tabelle}
+	\begin{frame}{Graphics}
+	\framesubtitle{relative position in a tabular}
+	This may be usefull for some iconified graphics.
 		\begin{center}%
 		\begin{tabular}{cc}%
-			\visible<+(1)->{\includegraphics[width = 0.15\textwidth]{figures/img1}}&
-			\visible<+(1)->{\includegraphics[width = 0.12\textwidth]{figures/img1}} \\
-			\visible<+(1)->{\includegraphics[width = 0.2\textwidth]{figures/img1}} &
-			\visible<+(1)->{\includegraphics[width = 0.3\textwidth]{figures/img1}} \\
+			\visible<+(1)->{\includegraphics[width = 0.12\textwidth]{figures/img1}}&
+			\visible<+(1)->{\includegraphics[width = 0.18\textwidth]{figures/img1}} \\
+			\visible<+(1)->{\includegraphics[width = 0.14\textwidth]{figures/img1}} &
+			\visible<+(1)->{\includegraphics[width = 0.14\textwidth]{figures/img1}} \\
 		\end{tabular}%
 		\end{center}%
 	\end{frame}
 	
+	
+	% To use minted in a beamer theme you have to use the following workaround and compile with the -shell-escape flag!
+	%\input{var/mintedExample.tex}
+	
+	\section*{The End}
+	\begin{frame}
+		\vspace{2.2cm}
+		\begin{center}
+			\huge Thank you for watching this presentation.\\
+			Have fun creating your own!
+		\end{center}
+		\vfill
+	\end{frame}
 	
 	% ##### don't forget to compile with biblatex #####
 	\printbibliographyframe

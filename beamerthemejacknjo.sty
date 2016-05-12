@@ -86,16 +86,33 @@
 	\end{tikzpicture}
 }
 
+\newcommand{\myCheck}{
+	\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-0.18, xscale=0.18, inner sep=0pt, outer sep=0pt]
+	\path[draw=myCol2,line join=round,line cap=round,miter limit=4.00,line
+	width=2.100pt,rounded corners=0.0000cm] (295.0000,420.9336) rectangle
+	(395.0000,520.9336);
+	\path[draw=myCol1,line join=miter,line cap=round,miter limit=4.00,even odd
+	rule,line width=2.5pt] (307.9327,463.8016) -- (341.2462,507.1091) --
+	(410.6824,425.8807);
+	\end{tikzpicture}}
+
+\newcommand{\myUnCheck}{
+	\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-0.18, xscale=0.18, inner sep=0pt, outer sep=0pt]
+	\path[draw=myCol2,line join=round,line cap=round,miter limit=4.00,line
+	width=2.100pt,rounded corners=0.0000cm] (295.0000,420.9336) rectangle
+	(395.0000,520.9336);
+	\end{tikzpicture}}
+
 \newcommand{\printbibliographyframe}{
-	\section*{Quellen}
-	\begin{frame}[allowframebreaks]{Quellen}
+	\section*{\biblographySection}
+	\begin{frame}[allowframebreaks]{\biblographySection}
 		\printbibliography
 	\end{frame}}
 
-\newcommand{\outlinesection}[1]{%
+\newcommand{\outlineFrame}[1]{%
 	\section{#1}\label{sec:#1}%
 	\begin{frame}
-		\frametitle{Gliederung}
+		\frametitle{\outlineSection}
 		\tableofcontents[currentsection]
 	\end{frame}}
 
