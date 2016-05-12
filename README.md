@@ -7,13 +7,21 @@ Anyways i wish you a lot of fun and good luck for all your presentations created
 
 
 # Requirements
+## Linux - Debian/Ubuntu
 This template needs some additional packages. It will definitly work if you installed the
 texlive-full package by:
 
     sudo apt-get install texlive-full
+    sudo apt-get install texstudio
 
 The texlive-full download will take ~3GB of space and will bring many packages you won't need.
-If you stick with your tex installation you may need to install some of the missing packages. 
+
+## Windows
+The following link leads to an howTo setup TEX on Windows.
+http://www.howtotex.com/howto/installing-latex-on-windows/
+
+## Notice
+If you stick with your tex installation you may need to install some missing packages. 
 They can be found at https://www.ctan.org/.
 
 # HowTo
@@ -38,7 +46,8 @@ if you wanna clear your project use:
 ## Windows
 Test ... 
 
-Notice: The example contains a source code section that is commented out at the moment.
+# Notice 
+The example contains a source code section that is commented out at the moment.
 		If you want to use the source code highlighting, you have to uncomment
 
 		\usepackage{minted} and
