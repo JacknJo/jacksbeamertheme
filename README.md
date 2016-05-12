@@ -43,6 +43,14 @@ Notice: The example contains a source code section that is commented out at the 
 
 in main.tex. Also you need to compile with the -shell-escape flag (which makeall.sh uses as default).
 
+# Licence
+The theme and this example is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
+
+The theme is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this theme.
+If not, see http://www.gnu.org/licenses/.
+
+
 Best Wishes 
 
 JacknJo
+
