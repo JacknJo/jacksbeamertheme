@@ -44,7 +44,7 @@ if you wanna clear your project use:
     sh clearall.sh
 
 ## Windows
-Test ... 
+Just open the main.tex and compile with pdflatex and bibtex for bibliography.
 
 # Notice 
 The example contains a source code section that is commented out at the moment.
