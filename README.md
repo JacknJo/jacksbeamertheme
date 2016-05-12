@@ -17,6 +17,7 @@ If you stick with your tex installation you may need to install some of the miss
 They can be found at https://www.ctan.org/.
 
 # HowTo
+## Linux
 Using this template is really easy. 
 Just clone the repository to your location by using:
 
@@ -34,6 +35,8 @@ if you wanna clear your project use:
 
     sh clearall.sh
 
+## Windows
+Test ... 
 
 Notice: The example contains a source code section that is commented out at the moment.
 		If you want to use the source code highlighting, you have to uncomment
